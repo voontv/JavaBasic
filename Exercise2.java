@@ -10,16 +10,25 @@ public class Exercise2 {
 
 	public static void printWord(String s) {
 		for (String i : s.split(" ")) {
-            i=removeSpecialCharacter(i);
-			if (charOfWord(i)) {
-				System.out.println(i);
+			if(!i.isEmpty()){
+				i=removeSpecialCharacter(i);
+				if (charOfWord(i)) {
+					System.out.println(i);
+				}
 			}
+            
 		}
 	}
     public static String removeSpecialCharacter(String s){
-        char lastIndex = s.charAt(s.length()-1);
+        char lastIndex = 'c';
+        if(s.trim().length()>1)
+        {
+            lastIndex = s.charAt(s.length()-1);
+        }
         if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ',')
+        {
             return s.substring(0,s.length()-1);
+        }
         return s;
 
     }
@@ -36,5 +45,9 @@ public class Exercise2 {
 		}
 
 		return checkCorrect;
+	}
+	public boolean isEmpty(String str)
+	{
+		return str.length()==0;
 	}
 }
