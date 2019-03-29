@@ -28,8 +28,8 @@ public class Exercise2 {
 		boolean checkCorrect = true;
 		for (int i = 0; i < b.length(); i++) {
 			convertToInt = (int) b.charAt(i);
-			checkCorrect = (convertToInt >= 65 && convertToInt <= 90) || (convertToInt >= 97 && convertToInt <= 122)
-					|| (convertToInt >= 48 && convertToInt <= 57);
+			checkCorrect = (convertToInt >= 'A' && convertToInt <= 'Z') || (convertToInt >= 'a' && convertToInt <= 'z')
+					|| (convertToInt >= '0' && convertToInt <= '9');
 			if (!checkCorrect) {
 				return checkCorrect;
 			}
