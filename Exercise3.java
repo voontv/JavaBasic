@@ -10,11 +10,14 @@ class Exercise3 {
 
 	public static void printWord(String s) {
 		for (String i : s.split(" ")) {
-            i=removeSpecialCharacter(i);
-			if (checkSymmetry(i)) {
-				System.out.println("Co chuoi ky tu doi xung");
-				break;
-			}
+            if(!i.isEmpty())
+            {
+                i=removeSpecialCharacter(i);
+                if (checkSymmetry(i)) {
+                    System.out.println("Co chuoi ky tu doi xung");
+                    break;
+                }
+            }   
 		}
 	}
 
@@ -36,4 +39,9 @@ class Exercise3 {
         return s;
 
     }
+
+    public boolean isEmpty(String str)
+	{
+		return str.length()==0;
+	}
 }
