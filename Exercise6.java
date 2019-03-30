@@ -16,16 +16,13 @@ public class Exercise6{
         System.out.println(temp);
     }
     public static char swapCharLowerUpper(char c){
-        if(((int)c>= 'A' && (int)c<='Z') || ((int)c>= 'a' && (int)c<='z'))
-        {
-           
-            if(Character.isLowerCase(c)){
-                c=Character.toUpperCase(c);
-            }
-            else{
-                c = Character.toLowerCase(c);
-            }
+        if(Character.isLowerCase(c)){
+            c=Character.toUpperCase(c);
+        }
+        else{
+            c = Character.toLowerCase(c);
         }
         return c;
     }
+        
 }
