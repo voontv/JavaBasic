@@ -2,49 +2,44 @@ import java.util.Scanner;
 
 public class Exercise2 {
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String s = sc.nextLine();
-		printWord(s);
-		// System.out.println(charOfWord(s));
+		Scanner scan = new Scanner(System.in);
+		String str = scan.nextLine();
+		printWord(str);
 	}
 
-	public static void printWord(String s) {
-		for (String i : s.split(" ")) {
-			if(!i.isEmpty()){
-				i=removeSpecialCharacter(i);
-				if (charOfWord(i)) {
-					System.out.println(i);
+	public static void printWord(String str) {
+		for (String tempStr : str.split(" ")) {
+			if(!tempStr.isEmpty()){
+				tempStr=removeSpecialCharacter(tempStr);
+				if (charOfWord(tempStr)) {
+					System.out.println(tempStr);
 				}
 			}
             
 		}
 	}
-    public static String removeSpecialCharacter(String s){
+    public static String removeSpecialCharacter(String str){
         char lastIndex = 'c';
-        if(s.trim().length()>1)
+        if(str.trim().length()>1)
         {
-            lastIndex = s.charAt(s.length()-1);
+            lastIndex = str.charAt(str.length()-1);
         }
         if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ',')
         {
-            return s.substring(0,s.length()-1);
+            return str.substring(0,str.length()-1);
         }
-        return s;
+        return str;
 
     }
-	public static boolean charOfWord(String b) {
-		int convertToInt;
-		boolean checkCorrect = true;
-		for (int i = 0; i < b.length(); i++) {
-			convertToInt = (int) b.charAt(i);
-			checkCorrect = (convertToInt >= 'A' && convertToInt <= 'Z') || (convertToInt >= 'a' && convertToInt <= 'z')
-					|| (convertToInt >= '0' && convertToInt <= '9');
-			if (!checkCorrect) {
-				return checkCorrect;
+	public static boolean charOfWord(String str) {
+		for (int i = 0; i < str.length(); i++) {
+			if(!Character.isLetterOrDigit(str.charAt(i)))
+			{
+				return false;
 			}
+			
 		}
-
-		return checkCorrect;
+		return true;
 	}
 	public boolean isEmpty(String str)
 	{
