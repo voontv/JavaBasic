@@ -20,12 +20,14 @@ public class Exercise1 {
 			}
 		}
 	}
+
 	public static boolean isEndSentences(String str){
 		int i= str.length()-1;
 		boolean isCheck = (str.charAt(i) == '.' || str.charAt(i) == '?' || str.charAt(i) == '!'
 		|| (i>1 && str.charAt(i - 1) == '\\' && str.charAt(i) == 'n'));
 		return isCheck;
 	}
+	
 	public static boolean isEmpty(String str){
 		return str.length()==0;
 	}

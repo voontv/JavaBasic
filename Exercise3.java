@@ -35,8 +35,7 @@ class Exercise3 {
 
     public static String removeSpecialCharacter(String str){
         char lastIndex = str.charAt(str.length()-1);
-        if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ',')
-        {
+        if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ','){
             return str.substring(0,str.length()-1);
         }
         return str;
