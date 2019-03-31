@@ -15,8 +15,7 @@ public class Exercise2 {
 				if(charOfWord(tempStr)){
 					System.out.println(tempStr);
 				}
-			}
-            
+			}   
 		}
 	}
 
@@ -29,16 +28,14 @@ public class Exercise2 {
             return str.substring(0, str.length()-1);
         }
         return str;
-
 	}
 	
 	public static boolean charOfWord(String str) {
-		
+
 		for(int i = 0; i < str.length(); i++){
 			if(!Character.isLetterOrDigit(str.charAt(i))){
 				return false;
-			}
-			
+			}	
 		}
 		return true;
 	}

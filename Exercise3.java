@@ -9,7 +9,7 @@ class Exercise3 {
 	}
 
 	public static void printWord(String str) {
-		for (String tempStr : str.split(" ")) {
+		for (String tempStr : str.split(" ")){
             if(!tempStr.isEmpty())
             {
                 tempStr=removeSpecialCharacter(tempStr);
@@ -25,7 +25,7 @@ class Exercise3 {
         if(str.length()<2){
             return false;
         }
-         
+
 		for (int i = 0; i < str.length() / 2; i++) {
             if (str.charAt(i) != str.charAt(str.length() - 1 - i)){
 				return false;
@@ -40,7 +40,6 @@ class Exercise3 {
             return str.substring(0,str.length()-1);
         }
         return str;
-
     }
 
     public boolean isEmpty(String str)
