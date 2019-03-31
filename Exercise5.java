@@ -13,10 +13,10 @@ public class Exercise5{
 
                 for(int i=0; i<words.length-1; i++){
                         int count=1;
-                        if(words[i].isEmpty())
-                        {
+                        if(words[i].isEmpty()){
                                 continue;
                         }
+                        
                         for(int j=i+1; j<words.length; j++){
                                 if(words[i].equalsIgnoreCase(words[j])){
                                         count++;
