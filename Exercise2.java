@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class Exercise2 {
-
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		String str = scan.nextLine();
@@ -12,7 +11,7 @@ public class Exercise2 {
 		for (String tempStr : str.split(" ")) {
 			if(!tempStr.isEmpty()){
 				tempStr=removeSpecialCharacter(tempStr);
-				if (charOfWord(tempStr)) {
+				if(charOfWord(tempStr)){
 					System.out.println(tempStr);
 				}
 			}
@@ -26,14 +25,14 @@ public class Exercise2 {
             lastIndex = str.charAt(str.length()-1);
         }
         if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ','){
-            return str.substring(0,str.length()-1);
+            return str.substring(0, str.length()-1);
         }
         return str;
 
 	}
 	
 	public static boolean charOfWord(String str) {
-		for (int i = 0; i < str.length(); i++) {
+		for(int i = 0; i < str.length(); i++){
 			if(!Character.isLetterOrDigit(str.charAt(i))){
 				return false;
 			}
