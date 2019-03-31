@@ -9,7 +9,7 @@ public class Exercise9{
     }
 
     public static void shoortcutString(String str){
-        char[] array = new char[str.length()];
+        char[] array;
         StringBuffer tempStr=new StringBuffer("");
         array = str.toCharArray();
 
