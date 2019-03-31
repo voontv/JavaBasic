@@ -3,15 +3,14 @@ import java.util.*;
 public class Exercise9{
     
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        String str = scan.nextLine();
-        shoortcutString(str);
+        Scanner scanner = new Scanner(System.in);
+        String str = scanner.nextLine();
+        shortcutString(str);
     }
 
-    public static void shoortcutString(String str){
-        char[] array;
+    public static void shortcutString(String str){
         StringBuffer tempStr=new StringBuffer("");
-        array = str.toCharArray();
+        char[] array = str.toCharArray();
 
         for(int i=0; i<array.length-1; i++){
             int count=1;
