@@ -46,6 +46,7 @@ public class Exercise5{
                 }
                 return position;
         }
+        
         public static String removeSpecialCharacter(String str){
                 char lastIndex = str.charAt(str.length()-1);
                 if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ','){
