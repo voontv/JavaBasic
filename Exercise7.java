@@ -9,7 +9,8 @@ public class Exercise7{
     }
 
     public static void positionStringChildren(String superStr,String childStr){
-        for(int i=0;i<superStr.length()-childStr.length();i++){
+        
+        for(int i=0; i<superStr.length()-childStr.length(); i++){
             if(superStr.substring(i, i+childStr.length()).equalsIgnoreCase(childStr)){
                 System.out.println("Position of String Children is "+i);
             }
