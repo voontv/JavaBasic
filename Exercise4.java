@@ -10,23 +10,30 @@ public class Exercise4 {
 
 	public static void printSumInteger(String str) {
 		int result = 0;
+
 		for (String tempStr : str.split("[\\s\\.?,!]")) {
 			if(!tempStr.isEmpty()){
-				if (IsInteger(tempStr)) {
-					result += Integer.parseInt(tempStr);
-				}
+				result += totalIntegerInWord(tempStr);
 			}
 		}
 		System.out.println("Ket qua tong cac so trong chuoi la " + result);
 	}
 
-	public static boolean IsInteger(String str) {
-		
-		for (int i = 0; i < str.length(); i++) {
-			if(!Character.isDigit(str.charAt(i))){
-				return false;
+	public static int totalIntegerInWord(String word) {
+		char array[]= word.toCharArray();
+		int result=0;
+		int count=0;
+
+		for (int i = 0; i < array.length; i++) {
+			if(!Character.isDigit(array[i])){
+				count=0;					
+			} else {
+				count=count*10+array[i] - '0';
+			}
+			if(!Character.isDigit(array[i]) || i==array.length-1){
+				result+=count;					
 			}
 		}
-		return true;
+		return result;
 	}
 }
