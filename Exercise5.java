@@ -14,7 +14,8 @@ public class Exercise5{
 
                 //created array String is word
                 for(String string: str.split(" ")){
-                        if(!str.isEmpty()){
+                        if(!string.isEmpty()){
+                                string = removeSpecialCharacter(string);
                                 word[position++]=string;
                         }
                 }
@@ -44,6 +45,13 @@ public class Exercise5{
                         }
                 }
                 return position;
+        }
+        public static String removeSpecialCharacter(String str){
+                char lastIndex = str.charAt(str.length()-1);
+                if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ','){
+                        return str.substring(0,str.length()-1);
+                }   
+                return str;
         }
 
         public static boolean isEmpty(String str){
