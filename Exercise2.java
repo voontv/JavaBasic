@@ -19,7 +19,7 @@ public class Exercise2 {
             
 		}
 	}
-
+	
     public static String removeSpecialCharacter(String str){
         char lastIndex = 'c';
         if(str.trim().length()>1){
@@ -33,7 +33,7 @@ public class Exercise2 {
 	}
 	
 	public static boolean charOfWord(String str) {
-		
+
 		for(int i = 0; i < str.length(); i++){
 			if(!Character.isLetterOrDigit(str.charAt(i))){
 				return false;
