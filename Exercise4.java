@@ -5,7 +5,7 @@ public class Exercise4 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		String string = scanner.nextLine();
-		printSumInteger(string);
+		printSumInteger(string); 
 	}
 
 	public static void printSumInteger(String str) {
