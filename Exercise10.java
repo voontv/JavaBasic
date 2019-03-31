@@ -6,18 +6,19 @@ public class Exercise10{
         Scanner scan = new Scanner(System.in);
         String str = scan.nextLine();
         convertString(str);
-
     }
 
     public static void convertString(String str){
         char[] array;
-        String tempStr="";
-        int count=1;
+        StringBuffer tempStr = new StringBuffer();
         array = str.toCharArray();
-        for(int i=0;i<array.length;i++){
+
+        for(int i=0; i<array.length; i++){
             if(Character.isDigit(array[i])){
                 String number="";
-                for(int j=i;j<array.length;j++){
+                char c = array[i-1];
+
+                for(int j=i; j<array.length; j++){
                     if(Character.isDigit(array[j])){
                         number+=array[j];
                     }
@@ -26,12 +27,13 @@ public class Exercise10{
                         break;
                     }
                 }
-                for(int j=1;j<Integer.parseInt(number);j++){
-                    tempStr = tempStr.concat(array[i-1]+"");
+
+                for(int j=1; j<Integer.parseInt(number); j++){
+                    tempStr = tempStr.append(c);
                 }
             }
             else{
-                tempStr = tempStr.concat(array[i]+"");
+                tempStr = tempStr.append(array[i]);
             }
         }
         System.out.println("String  after shortcut is "+tempStr);
