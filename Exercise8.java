@@ -31,6 +31,7 @@ public class Exercise8{
 
         public static String addSpacesIfMissing(String str){
                 String string = str;
+
                 for(int i=0; i<string.length()-1; i++){
                         char c = string.charAt(i);
                         if((c == '!' || c =='?' || c == '.' || c == ',') &&  c != ' '){
@@ -43,6 +44,7 @@ public class Exercise8{
         public static String upperCaseAllCaptions(String str){
                 String words[]=str.split("[\\s]");
                 StringBuffer buffer = new StringBuffer();
+
                 for(int i=words.length-1;i>=0;i--){
                         if(i==0){
                                 words[i]=upperOneWord(words[i]);
@@ -55,6 +57,7 @@ public class Exercise8{
                                 words[i] = words[i].toLowerCase();
                         }
                 }
+                
                 for(int i=0;i<words.length;i++){
                         buffer=buffer.append(" "+words[i]);
                 }
