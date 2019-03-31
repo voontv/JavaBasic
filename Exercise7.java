@@ -1,11 +1,11 @@
 import java.util.*;
 
 public class Exercise7{
-    
+
     public static void main(String[] args){
-        Scanner scan = new Scanner(System.in);
-        String superStr = scan.nextLine();
-        String childStr = scan.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String superStr = scanner.nextLine();
+        String childStr = scanner.nextLine();
         positionStringChildren(superStr, childStr);
     }
 
