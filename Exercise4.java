@@ -6,7 +6,6 @@ public class Exercise4 {
 		Scanner scan = new Scanner(System.in);
 		String str = scan.nextLine();
 		printSumInteger(str);
-
 	}
 
 	public static void printSumInteger(String str) {
@@ -23,6 +22,7 @@ public class Exercise4 {
 	}
 
 	public static boolean checkStringIsInteger(String str) {
+		
 		for (int i = 0; i < str.length(); i++) {
 			if(!Character.isDigit(str.charAt(i))){
 				return false;
@@ -35,9 +35,7 @@ public class Exercise4 {
 		if(lastIndex == '?' || lastIndex == '.' || lastIndex == '!' || lastIndex == ','){
 			return str.substring(0,str.length()-1);
 		}
-            
         return str;
-
     }
 	public static boolean isEmpty(String str){
 		return str.length()==0;
