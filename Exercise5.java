@@ -24,17 +24,8 @@ public class Exercise5{
                         }
 
                         //neu in nhu the nay thi nhung tu xuat hien hon 3 lan va xuat hien cang o cuoi chuoi thi in se trung
-                        if(count>2){
-                                boolean alreadyPrinted=false;
-                                for(int j=0; j<i; j++){
-                                        if(words[i].equalsIgnoreCase(words[j])){
-                                                alreadyPrinted=true;
-                                                break;  
-                                        }
-                                }
-                                if(!alreadyPrinted){
-                                        System.out.println(words[i]);
-                                }
+                        if(count==2){
+                                System.out.println(words[i]);
                         }
                 }
         }
