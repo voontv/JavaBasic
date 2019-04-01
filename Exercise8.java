@@ -17,8 +17,7 @@ public class Exercise8{
                 for(String string: str.split("[\\s]"))
                 {
                         if(!string.isEmpty()){
-                                if(string.equalsIgnoreCase("?") || string.equalsIgnoreCase("!")
-                                        || string.equalsIgnoreCase(",") || string.equalsIgnoreCase(".")){
+                                if(string.length()==1 && "?.,!".contains(string)){
                                         buffer=buffer.append(string);
                                 } else {
                                         buffer=buffer.append(" "+string);
@@ -30,28 +29,27 @@ public class Exercise8{
         }
 
         public static String addSpacesIfMissing(String str){
-                String string = str;
-
-                for(int i=0; i<string.length()-1; i++){
-                        char c = string.charAt(i);
-                        if((c == '!' || c =='?' || c == '.' || c == ',') &&  c != ' '){
-                                string = string.substring(0, i+1).concat(" "+string.substring(i+1, string.length()));
+                StringBuffer buffer = new StringBuffer(str);
+                for(int i=0; i< buffer.length(); i++){
+                        char c = buffer.charAt(i);
+                        if(c == '.' || c == '!' || c == '?' || c == ','){
+                               buffer.insert(i+1, " ");
                         }
-                }
-                return string.trim();
+                }          
+                return buffer.toString().trim();
         }
 
         public static String upperCaseAllCaptions(String str){
-                String words[]=str.split("[\\s]");
+                String words[]=str.split(" ");
                 StringBuffer buffer = new StringBuffer();
 
-                for(int i=words.length-1;i>=0;i--){
+                for(int i=words.length-1; i>=0; i--){
                         if(i==0){
                                 words[i]=upperOneWord(words[i]);
-                                continue;
+                                break;
                         }
-                        char endCharword=words[i-1].charAt(words[i-1].length()-1);
-                        if(endCharword == '?' || endCharword == '!' || endCharword == '.'){
+                        if(words[i-1].contains("!") || words[i-1].contains(".")
+                                || words[i-1].contains("?")){
                                 words[i]=upperOneWord(words[i]);
                         } else {
                                 words[i] = words[i].toLowerCase();
@@ -65,16 +63,10 @@ public class Exercise8{
         }
 
         public static String upperOneWord(String str){
-                char []array = str.toCharArray();
-                StringBuffer buffer = new StringBuffer();
-
-                for(int i=0; i<array.length; i++){
-                        if(i==0){
-                                buffer=buffer.append(Character.toUpperCase(array[i]));
-                        } else {
-                                buffer = buffer.append(array[i]);
-                        }
+                if(str.length()>1){
+                        return Character.toUpperCase(str.charAt(0))+str.substring(1).toLowerCase();
+                } else {
+                        return Character.toUpperCase(str.charAt(0))+"";
                 }
-                return buffer.toString().trim();
         }
 }
