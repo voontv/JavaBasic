@@ -8,7 +8,7 @@ public class Exercise8{
                 string = addSpacesIfMissing(string);
                 string = removeAllRedundantSpaces(string);
                 string = upperCaseAllCaptions(string);
-                System.out.println(string);
+                System.out.println("String ok is "+string);
         }
 
         public static String removeAllRedundantSpaces(String str){
@@ -29,44 +29,55 @@ public class Exercise8{
         }
 
         public static String addSpacesIfMissing(String str){
-                StringBuffer buffer = new StringBuffer(str);
-                for(int i=0; i< buffer.length(); i++){
-                        char c = buffer.charAt(i);
-                        if(c == '.' || c == '!' || c == '?' || c == ','){
-                               buffer.insert(i+1, " ");
+                StringBuffer buffer = new StringBuffer();
+
+                for(String string: str.split("[\\s]"))
+                {
+                        if(!string.isEmpty()){
+                                if(haveSpecialCharacter(string)){
+                                        if(string.contains("?")) {
+                                                string = string.replace("?", "? ");               
+                                        }
+                                        if(string.contains("!")) {
+                                                string = string.replace("!", "! ");                
+                                        }
+                                        if(string.contains(".")) {
+                                                string = string.replace(".", ". ");                
+                                        }
+                                        if(string.contains(",")) {
+                                                string = string.replace(",", ", ");             
+                                        }   
+                                }
+                                buffer=buffer.append(" "+string);
                         }
-                }          
+                }        
                 return buffer.toString().trim();
         }
 
         public static String upperCaseAllCaptions(String str){
-                String words[]=str.split(" ");
-                StringBuffer buffer = new StringBuffer();
+                StringBuffer buffer = new StringBuffer(str);
+                boolean needtoUpper=false;
 
-                for(int i=words.length-1; i>=0; i--){
-                        if(i==0){
-                                words[i]=upperOneWord(words[i]);
-                                break;
+                for(int i=0; i<str.length(); i++){
+                        if((haveSpecialCharacter(str.charAt(i)) && (str.charAt(i) != ','))) {
+                                needtoUpper = true;
                         }
-                        if(words[i-1].contains("!") || words[i-1].contains(".")
-                                || words[i-1].contains("?")){
-                                words[i]=upperOneWord(words[i]);
-                        } else {
-                                words[i] = words[i].toLowerCase();
+
+                        if((needtoUpper && !haveSpecialCharacter(str.charAt(i)) && (str.charAt(i) != ' '))
+                                || i==0) {
+                                buffer.deleteCharAt(i);
+                                buffer.insert(i, Character.toUpperCase(str.charAt(i)));
+                                needtoUpper = false;
                         }
-                }
-                
-                for(int i=0;i<words.length;i++){
-                        buffer=buffer.append(" "+words[i]);
                 }
                 return buffer.toString().trim();
         }
 
-        public static String upperOneWord(String str){
-                if(str.length()>1){
-                        return Character.toUpperCase(str.charAt(0))+str.substring(1).toLowerCase();
-                } else {
-                        return Character.toUpperCase(str.charAt(0))+"";
-                }
+        public static boolean haveSpecialCharacter(char c) {
+                return haveSpecialCharacter(c+"");
+        }
+
+        public static boolean haveSpecialCharacter(String str) {
+                return str.contains("?") || str.contains("!") || str.contains(".") || str.contains(",");
         }
 }
